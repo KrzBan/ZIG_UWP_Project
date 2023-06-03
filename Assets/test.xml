@@ -1,0 +1,20 @@
+<Scene>
+  <Item>
+    <Name>Item 2</Name>
+    <Children />
+  </Item>
+  <Item>
+    <Name>Roor</Name>
+    <Children>
+      <Item>
+        <Name>Item 1</Name>
+        <Children>
+          <Item>
+            <Name>Item 3</Name>
+            <Children />
+          </Item>
+        </Children>
+      </Item>
+    </Children>
+  </Item>
+</Scene>

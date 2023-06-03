@@ -1,0 +1,55 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:ZIG_UWP_Project"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    x:Class="ZIG_UWP_Project.MainPage"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <muxc:MenuBar Grid.RowSpan="2" VerticalAlignment="Top" Height="40">
+            <muxc:MenuBarItem Title="File">
+                <MenuFlyoutItem Text="Load Scene" Click="{x:Bind LoadSceneFromFile}"/>
+                <MenuFlyoutItem Text="Save Scene" Click="{x:Bind SaveSceneToFile}"/>
+            </muxc:MenuBarItem>
+        </muxc:MenuBar>
+
+        <Button Margin="10,45,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Padding="2,2,2,2" Click="{x:Bind Button_AddItem}">
+            <Image Width="26" Height="26" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/Assets/PlusIcon22x22.png" Stretch="Fill"/>
+        </Button>
+        <Button Margin="47,45,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Padding="2,2,2,2" Click="{x:Bind Button_RemoveSelectedItem}">
+            <Image Width="26" Height="26" HorizontalAlignment="Left" VerticalAlignment="Center" Source="/Assets/CrossIcon22x22.png" Stretch="Fill"/>
+        </Button>
+
+
+
+        <muxc:TreeView x:Name="SceneTree" Background="Azure" Margin="10,82,0,212" Grid.RowSpan="2" HorizontalAlignment="Left" Width="277"
+                       SelectionMode="Single" ItemsSource="{x:Bind Scene}">
+            <muxc:TreeView.ItemTemplate>
+                <DataTemplate x:DataType="local:Item">
+                    <muxc:TreeViewItem ItemsSource="{x:Bind Children}" Content="{x:Bind Name, Mode=OneWay}" />
+                </DataTemplate>
+            </muxc:TreeView.ItemTemplate>
+        </muxc:TreeView>
+
+        <Image Margin="293,64,292,150" Source="/Assets/Example.png" Grid.RowSpan="2"/>
+
+        <StackPanel Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5" Margin="0,45,10,122" HorizontalAlignment="Right" Width="277" Grid.Column="2">
+            <TextBlock TextWrapping="Wrap" Text="Properties"/>
+            <TextBox TextWrapping="Wrap" Text="{x:Bind ((local:Item)SceneTree.SelectedItem).Name, Mode=TwoWay}"/>
+        </StackPanel>
+
+
+    </Grid>
+</Page>

@@ -1,0 +1,28 @@
+<Scene>
+  <Item>
+    <Name>Root</Name>
+    <Children>
+      <Item>
+        <Name>sdfgdfsg</Name>
+        <Children />
+      </Item>
+      <Item>
+        <Name>3</Name>
+        <Children />
+      </Item>
+      <Item>
+        <Name>New21423453t6</Name>
+        <Children>
+          <Item>
+            <Name>New</Name>
+            <Children />
+          </Item>
+        </Children>
+      </Item>
+      <Item>
+        <Name>Newerhdgrtyhu</Name>
+        <Children />
+      </Item>
+    </Children>
+  </Item>
+</Scene>
